@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+ <head>
+  <meta charset="utf-8">  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="skuska1_js.js"></script>  
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <title>Projekt1</title>
+  <style>  
+ 
+
+
+  </style>
+
+  </head>
+  <body> 
+
+  
+    <div class="container-fluid" id="div1" style="margin-top: 10px">  
+      <div class="row">
+        <div class="col-sm-5" style="; background: linear-gradient(to right, #A9A9A9, brown); height: 75px;"><h1 style="font-weight: bold; font-family: Tahoma; text-align: center; font-size: 28px; text-shadow: 1.5px 1px gainsboro; font-style: italic ">STOCKmanagement</h1></div>
+        <div class="col-sm-7" style="background-color: brown; height: 75px;"><h6 style="font: tahoma; font-size: 15px; margin-left: 500px; margin-top: 50px; font-weight: bold; text-shadow: 1.5px 1.5px #000000; color: gainsboro">GlobalLogic Slovakia, s.r.o.</h6></div>
+      </div>
+    </div>
+
+    
+    
+    <div id="div2" >
+      <button type="button" id="btn1" style="margin-left: 292px; margin-top: 12px" class="btn btn-primary btn-lg">Stock Registration</button>
+      <button type="button" id="btn2" style="margin-left: 15px; margin-top: 12px" class="btn btn-primary btn-lg">Stock In</button>
+      <button type="button" id="btn3" style="margin-left: 15px; margin-top: 12px" class="btn btn-primary btn-lg">Stock Out</button>
+      <button type="button" id="btn4" style="margin-left: 15px; margin-top: 12px" class="btn btn-primary btn-lg">On Stock</button>
+      <button type="button" id="btn5" style="margin-left: 15px; margin-top: 12px" class="btn btn-primary btn-lg">Movements History</button>    
+    </div>
+
+
+  	<div id="welcome">
+    	<h1>Welcome</h1> 
+  		<br>
+  		<h2>in Stock Management System</h2>
+  		<br>
+  		<h3>by GlobalLogic Slovakia, s.r.o.</h3>
+    </div>
+
+    <div id="div3">
+      <p style="font-family: tahoma; font-weight: bold; font-size: 14px; margin-top: 25px">Enter goods name: <input type="text" id="name" value=""> </p>
+      <p style="font-family: tahoma; font-weight: bold; font-size: 14px">Enter UOM: <input type="text" id="measure" value="" style="margin-left: 50px"> </p>
+
+      <p id="demo1"></p>
+      <br>
+      <input type="button" id="btn11" value="insert item" style="margin-left: 200px">
+
+      <ol id="ol1">  
+      <table id="myList"  border="2" style="text-align: center; margin-left: 450px">
+        <tr>  
+          <th><b>No.</b></th>      
+          <th><b>Name</b></th>
+          <th><b>UoM</b></th>
+        </tr>
+      </table>
+      </ol>
+    </div> 
+    <div id="div4">
+      <form>
+    
+      <label for="sel1">Select item:</label>
+      <select id="sel1"> 
+      </select>
+      <br>
+     
+  </form>
+
+      <p style="font-family: tahoma; font-weight: bold; font-size: 14px; margin-top: 25px">Enter amount: <input type="text" id="amount" value=""> </p>
+      <p style="font-family: tahoma; font-weight: bold; font-size: 14px">Enter price: <input type="text" id="price" value="" style="margin-left: 20px"> </p>
+    </div>
+    <div id="div5"></div>
+	<div id="div6"></div>
+	<div id="div7"></div>
+
+
+  
+   	
+</body>
+</html>
