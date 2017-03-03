@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+ <head>
+  <meta charset="utf-8">  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
+  <script type="text/javascript" src="projekt11js.js"></script> 
+  <link rel="stylesheet" type="text/css" href="projekt11css.css"/>
+  <title>Projekt11</title>
+  <style>  
+  </style>
+  </head>
+  <body>   
+    <div class="container-fluid" id="heading">  
+      <div class="row">
+        <div class="col-sm-5"><h1>STOCKmanagement</h1></div>
+        <div class="col-sm-7"><h6>Repas2 Slovakia, s.r.o.</h6></div>
+      </div>
+    </div>     
+    <div id="buttons">
+      <button type="button" id="btnReg" class="btn btn-primary btn-lg">Stock Registration</button>
+      <button type="button" id="btnIn" class="btn btn-primary btn-lg">Stock In</button>
+      <button type="button" id="btnOut" class="btn btn-primary btn-lg">Stock Out</button>
+      <button type="button" id="btnOn" class="btn btn-primary btn-lg">On Stock</button>
+      <button type="button" id="btnHist" class="btn btn-primary btn-lg">Movements History</button>    
+    </div>
+  	<div id="welcome">
+    	<h1>Welcome</h1> 
+  		<br>
+  		<h2>in Stock Management System</h2>  		
+    </div>
+    <div id="registration">
+      <p id="goodsName">Enter goods name: <input type="text" id="name" value=""> </p>
+      <p id="enterUOM">Enter UOM: <input type="text" id="measure" value=""> </p>     
+      <button type="button" id="insertItem" value="" class="btn btn-success btn-md">Insert Item</button>
+      <br><br>
+      <div id="msgBox">
+        <p id="warning"><b>This Item is already in the system!<b></p>
+        <button id="btnBox">OK</button>
+      </div>
+      <br><br>
+      <ol> 
+      <table class="table table-condensed" id="tableReg"  border="2">
+        <tr>               
+          <th><b>NAME</b></th>
+          <th><b>UOM</b></th>
+        </tr>
+      </table>
+      </ol>
+    </div>
+    <div id="stockin">
+      <br><br>
+      <form>   
+        <label>Select Goods Type</label>
+        <select id="selItems"> 
+        </select>
+      </form>
+      <br>
+      <p id="enterAmount">Enter amount: <input type="text" id="quantity" value=""> </p>
+      <p id="enterPrice">Enter price: <input type="text" id="rate" value=""> </p>            
+      <button type="button" id="inItem" value="" class="btn btn-success btn-md">Stock In Item</button>
+      <br>
+      <ol> 
+        <table class="table table-condensed" id="tableIn" border="2">
+          <tr>                
+            <th><b>NAME</b></th>
+            <th><b>UOM</b></th>
+            <th><b>AMOUNT</b></th>
+            <th><b>PRICE</b></th>
+            <th><b>DATE</b></th>
+          </tr>
+        </table>
+      </ol>
+    </div>
+    <div id="stockout"></div>
+	  <div id="onstock"></div>
+	  <div id="movements"></div>   	
+  </body>
+</html>
