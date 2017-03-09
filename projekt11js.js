@@ -29,19 +29,23 @@ $(document).ready(function(){
           $("#btnBox").click(function(){
             $("#msgBox").slideUp()
           });        
-          list.reduce(list[i].name);  //if item in the list already - remove it                                     
+          var duplicite_goods=1;                                     
           break;
         };         
       };
+       if (duplicite_goods != 1) {
       list.push(item1);   //insertion into the list                            
       $("#tableReg").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"</tr>");  //adding the list data into the table      
       $("#selItems").append("<option>"+list[i].name+"</option>"); //adding the item name to the select element
+       }
+      
     }      
   });      
   $("#inItem").click(function(){    
     var sel = $("select[id=selItems]").val();    //user's inputs values read into variables               
     var amount = $("#quantity").val();
-    var price = $("#rate").val(); 
+    var price = $("#rate").val();
+    var d = new Date(); 
     if (amount === "" || price === ""){          // avoiding insertion of blank inputs in the list/table
       $("#infoBox2").slideDown()        
         $("#btnInfoBox2").click(function(){
@@ -56,7 +60,7 @@ $(document).ready(function(){
           break;  
         };
       }
-      $("#tableIn").append("<tr>"+"<td>"+list[j].name+"</td>"+"<td>"+list[j].uom+"</td>"+"<td>"+list[j].amount+"</td>"+"<td>"+list[j].price+"</td>"+"<td></td>"+"</tr>");
+      $("#tableIn").append("<tr>"+"<td>"+list[j].name+"</td>"+"<td>"+list[j].uom+"</td>"+"<td>"+list[j].amount+"</td>"+"<td>"+list[j].price+"</td>"+"<td>"+d.toUTCString()+"</td>"+"</tr>");
     };
     $("select[id=selItems]").val(""); //clearing inputs
     $("#quantity").val("");
