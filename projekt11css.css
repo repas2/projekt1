@@ -1,4 +1,4 @@
-body{
+  body{
     background-image: url("grey31.jpg");
     opacity: 0.9;
     background-size: 100%;
@@ -128,7 +128,7 @@ body{
    .underlineSub{
     position: relative;
     top: 5.4%;    
-    background:linear-gradient(to left,  silver, brown,  silver);
+    background:linear-gradient(to right, #BBBBBB, #A9A9A9, brown, #BBBBBB);
     width:80%;
     height: 0.2%;
     margin:auto;
@@ -143,6 +143,7 @@ body{
   #name{
     border: 1px solid black; 
     border-radius: 2px;
+    background-color:#E0E0E0;
   }
   #enterUOM{
     font-family: tahoma; 
@@ -154,7 +155,9 @@ body{
   #measure{
     border: 1px solid black; 
     border-radius: 2px; 
-    margin-left: 6%;
+    margin-left: 6.4%;
+    background-color:#E0E0E0;
+    width: 22.4%;
   }
   #insertItem{
     margin-left: 4%; 
@@ -194,18 +197,24 @@ body{
   #selItems{
     border: 1px solid black; 
     border-radius: 2px;
-    margin-left: 0.1%;
+    margin-left: 0.05%;
+    width: 21.3%;
+    height: 5%;
+    background-color:#E0E0E0;
   }
   #enterAmount{
     font-family: tahoma; 
     font-weight: bold; 
     font-size: 14px;      
-    margin-left: 4%;
+    margin-left: 4.0%;
+    margin-top: -1%;
   }
   #quantity{
     border: 1px solid black; 
     border-radius: 2px; 
-    margin-left: 3.8%;
+    margin-left: 3%;
+    width: 22.3%;
+    background-color: #E0E0E0;
   }
   #enterPrice{
     font-family: tahoma; 
@@ -217,21 +226,23 @@ body{
   #rate{
     border: 1px solid black; 
     border-radius: 2px; 
-    margin-left: 6.1%;
+    margin-left: 5.6%;
+    width: 22.3%;
+    background-color: #E0E0E0;
   }
   #inItem{
     margin-left: 4%; 
     margin-top: 3%;
   }
-  #btnInfoBox1, #btnInfoBox2{    
+  #btnInfoBox2{    
     position: relative;
     left: 38%;
     top:40px;
     border-radius: 3px;
     width: 25%;
     background: goldenrod;
-  }
-  #infoBox1, #infoBox2{
+  } 
+  #infoBox2{
     border: 2px solid #444444;
     border-top: 25px solid #444444;
     border-radius: 2px;
@@ -241,22 +252,15 @@ body{
     height: 20%;
     position: relative;
     left: 25%;
-  }
-  #tableRegWarning, #tableInWarning{
-    position: relative;
-    left: 9%;
-    top:21%;
-    font-size: 16px;
-    text-shadow: 1.4px 1.3px gainsboro;    
-  }
-  #tableIn{
+  }  
+  #tableIn, #tableOn{
     text-align: center; 
     margin-left: -2%;
     margin-top: 5%;
   }
   #stockout{
-    height:1300px;
-    width:65%;
+    height: 1300px;
+    width: 65%;
     margin: 0 auto;
     border: 2px solid #696969;
     border-radius: 4px;
@@ -264,8 +268,8 @@ body{
     opacity: 0.8;
   }
   #onstock{
-    height:1300px;
-    width:65%;
+    height: 1300px;
+    width: 65%;
     margin: 0 auto;
     border: 2px solid #696969;
     border-radius: 4px;
@@ -273,11 +277,64 @@ body{
     opacity: 0.8;
   }
   #movements{
-    height:1300px;
-    width:65%;
+    height: 1300px;
+    width: 65%;
     margin: 0 auto;
     border: 2px solid #696969;
     border-radius: 4px;
     background-color: #BBBBBB;
     opacity: 0.8;
   }
+  #overlayBox, #overlayBox1, #overlayBox2{
+    width: 100%;
+    height:100%;
+    background-color: rgba(40, 40, 40, 0.8);
+    position:fixed;
+    top: 0;
+    z-index: 9999;
+    display: none;
+    overflow: auto;
+  }
+  #boxReg, #boxStockIn{
+    width: 33%;
+    height: 25%;
+    margin: 13% auto;
+    background-color: #A9A9A9;
+    border-radius: 2px;
+    border: 2px solid #777;  
+  }
+  #boxHead{
+    height:18%;
+    width:100%;
+    background: linear-gradient(to top, #FFFFFF, #F5F5F5, #DCDCDC, #C0C0C0, #A9A9A9, #777, #696969);
+  }
+  #warningHead{
+    font-family: tahoma;
+    font-size: 18px;
+    margin-left: 2%;
+    color:black;
+    font-weight: bold;
+  } 
+  .closeBox{
+    cursor: pointer;
+    font-size: 40px;
+    margin-top: -11%;
+    margin-right: 1.6%;    
+    float: right;
+    color: black;
+  } 
+  #duplicityWarning, #tableRegWarning, #tableInWarning{
+    font-size: 15px;   
+    color: black;
+    text-align: center;
+    margin-top: 8%;
+    font-weight: bold;
+  }
+  #closeOK{
+    margin: 3% 40%;
+    width: 20%;
+    border-radius: 2px;
+    color: black;
+    font-weight: bold;
+  }
+  

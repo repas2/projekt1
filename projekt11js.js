@@ -1,11 +1,9 @@
 $(document).ready(function(){
   var list = [];  
-  //var list2 = [];
-  $("#msgBox, #infoBox1, #infoBox2").hide();
   $("#name").keyup(function() {                    //to upper case function applied to the name property
     this.value = this.value.toUpperCase();
   });
-  $("#insertItem").click(function(){                    //user's input into variables
+  $("#insertItem").click(function(e){                    //user's input into variables
     var name = $("#name").val();
     var uom = $("#measure").val();
     var amount, price;
@@ -16,41 +14,46 @@ $(document).ready(function(){
       return item1.name;
     };
     var retval = GetPropertyValue(name); 
-    if (name === "" || uom === ""){                  // avoiding insertion of blank inputs in the list/table
-      $("#infoBox1").slideDown()        
-        $("#btnInfoBox1").click(function(){
-          $("#infoBox1").slideUp()
-        }); 
+    if (name === "" || uom === ""){ 
+      e.preventDefault();       
+      var message = $(this).attr("data-infoBoxes1");
+      $(message).fadeIn("fast"); 
+      $(message).find(".closeBox, #closeOK").click(function(){
+        $(message).fadeOut("fast");
+      });       
     }
     else{
       for (var i = 0; i < list.length; i++){          //check if the item is in the list already
-        if (list[i].name === retval) {      
-          $("#msgBox").slideDown()        
-          $("#btnBox").click(function(){
-            $("#msgBox").slideUp()
-          });        
+        if (list[i].name === retval) { 
+          e.preventDefault();       
+          var messageDuplicity = $(this).attr("data-infoBoxes");
+          $(messageDuplicity).fadeIn("fast"); 
+          $(messageDuplicity).find(".closeBox, #closeOK").click(function(){
+            $(messageDuplicity).fadeOut("fast");
+          });
           var duplicite_goods=1;                                     
           break;
         };         
       };
-       if (duplicite_goods != 1) {
-      list.push(item1);   //insertion into the list                            
-      $("#tableReg").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"</tr>");  //adding the list data into the table      
-      $("#selItems").append("<option>"+list[i].name+"</option>"); //adding the item name to the select element
-       }
-      
+      if (duplicite_goods != 1) {
+       list.push(item1);   //insertion into the list                            
+       $("#tableReg").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"</tr>");  //adding the list data into the table      
+       $("#selItems").append("<option>"+list[i].name+"</option>"); //adding the item name to the select element
+      }      
     }      
   });      
-  $("#inItem").click(function(){    
+  $("#inItem").click(function(e){    
     var sel = $("select[id=selItems]").val();    //user's inputs values read into variables               
     var amount = $("#quantity").val();
     var price = $("#rate").val();
     var d = new Date(); 
     if (amount === "" || price === ""){          // avoiding insertion of blank inputs in the list/table
-      $("#infoBox2").slideDown()        
-        $("#btnInfoBox2").click(function(){
-          $("#infoBox2").slideUp()
-        });  
+      e.preventDefault();       
+      var message = $(this).attr("data-infoBoxes2");
+      $(message).fadeIn("fast"); 
+      $(message).find(".closeBox, #closeOK").click(function(){
+        $(message).fadeOut("fast");
+      }); 
     } 
     else{  
       for (var j=0; j<list.length; j++){ //searching the object to add the properties to
@@ -64,8 +67,7 @@ $(document).ready(function(){
     };
     $("select[id=selItems]").val(""); //clearing inputs
     $("#quantity").val("");
-    $("#rate").val("");
-    
+    $("#rate").val("");    
   });
   //console.log(list);
   
