@@ -43,10 +43,11 @@ $(document).ready(function(){
     }      
   });      
   $("#inItem").click(function(e){    
-    var sel = $("select[id=selItems]").val();    //user's inputs values read into variables               
+    var sel = $("#selItems").val();    //user's inputs values read into variables               
     var amount = $("#quantity").val();
     var price = $("#rate").val();
     var d = new Date(); 
+    var dUTC= d.toUTCString();
     if (amount === "" || price === ""){          // avoiding insertion of blank inputs in the list/table
       e.preventDefault();       
       var message = $(this).attr("data-infoBoxes2");
@@ -63,9 +64,10 @@ $(document).ready(function(){
           break;  
         };
       }
-      $("#tableIn").append("<tr>"+"<td>"+list[j].name+"</td>"+"<td>"+list[j].uom+"</td>"+"<td>"+list[j].amount+"</td>"+"<td>"+list[j].price+"</td>"+"<td>"+d.toUTCString()+"</td>"+"</tr>");
+      $("#tableIn").append("<tr>"+"<td>"+list[j].name+"</td>"+"<td>"+list[j].uom+"</td>"+"<td>"+list[j].amount+"</td>"+"<td>"+list[j].price+"</td>"+"<td>"+d.getDate() +"."+d.getMonth()+". "+d.getFullYear()+"</td>"+"</tr>");
     };
-    $("select[id=selItems]").val(""); //clearing inputs
+    };
+    $("#selItems").val(""); //clearing inputs
     $("#quantity").val("");
     $("#rate").val("");    
   });
