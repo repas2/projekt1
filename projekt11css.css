@@ -194,7 +194,7 @@
     font-weight: bold; 
     font-size: 14px;
   }
-  #selItems{
+  #selItems, #selItems2{
     border: 1px solid black; 
     border-radius: 2px;
     margin-left: 0.05%;
@@ -202,14 +202,14 @@
     height: 5%;
     background-color:#E0E0E0;
   }
-  #enterAmount{
+  #enterAmount, #enterAmount2{
     font-family: tahoma; 
     font-weight: bold; 
     font-size: 14px;      
     margin-left: 4.0%;
     margin-top: -1%;
   }
-  #quantity{
+  #quantity, #quantity2{
     border: 1px solid black; 
     border-radius: 2px; 
     margin-left: 3%;
@@ -230,7 +230,7 @@
     width: 22.3%;
     background-color: #E0E0E0;
   }
-  #inItem{
+  #inItem, #outItem{
     margin-left: 4%; 
     margin-top: 3%;
   }
@@ -253,7 +253,7 @@
     position: relative;
     left: 25%;
   }  
-  #tableIn, #tableOn{
+  #tableIn, #tableOn, #tableOut{
     text-align: center; 
     margin-left: -2%;
     margin-top: 5%;

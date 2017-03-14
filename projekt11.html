@@ -120,6 +120,30 @@
     <div id="stockout">
       <p id="headingOut" class="subHeadings">Goods Stock Out</p>
       <div class="underlineSub"></div>
+       <br>
+      <form>   
+        <label>Goods Type:</label>
+        <select id="selItems2"> 
+          <option selected="selected" value="">choose goods type</option>
+        </select>
+      </form>
+      <br>
+      <p id="enterAmount2">Amount: <input type="text" id="quantity2" value=""> </p>
+                
+      <button type="button" id="outItem" value="" class="btn btn-success btn-md" data-infoBoxes2="#overlayBox2">Stock Out Item</button>
+      <br>
+      <br>
+      <ol> 
+        <table class="table table-condensed" id="tableOut" border="2">
+          <tr>                
+            <th><b>NAME</b></th>
+            <th><b>UOM</b></th>
+            <th><b>AMOUNT</b></th>
+            <th><b>PRICE</b></th>
+            <th><b>DATE</b></th>
+          </tr>
+        </table>
+      </ol>
     </div>
 	  <div id="onstock">
       <p id="headingOn" class="subHeadings">On Stock Status</p> 
