@@ -3,55 +3,61 @@ $(document).ready(function(){
   $("#name").keyup(function() {                    //to upper case function applied to the name property
     this.value = this.value.toUpperCase();
   });
-  $("#insertItem").click(function(e){                    //user's input into variables
+  $("#insertItem").click(function(){                    //user's input into variables
     var name = $("#name").val();
     var uom = $("#measure").val();
     var amount, price;
-    $("#name").val("");
-    $("#measure").val("");
-    var item1 = {"name": name, "uom": uom, "amount": null, "price": null};          //object declaration
-    function GetPropertyValue(item){                 //get property value from the property "name" from the object
-      return item1.name;
-    };
-    var retval = GetPropertyValue(name); 
-    if (name === "" || uom === ""){ 
-      e.preventDefault();       
-      var message = $(this).attr("data-infoBoxes1");
+    var item1 = {"name": name, "uom": uom, "amount": null, "price": null};          //object declaration   
+    if (name === "" && uom === ""){   //warning if both inputs are empty    
+      var message = $(this).attr("data1");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
         $(message).fadeOut("fast");
       });       
     }
+    else if (name === ""){      //warning if name input is empty 
+      var message = $(this).attr("data3");
+      $(message).fadeIn("fast"); 
+      $(message).find(".closeBox, #closeOK").click(function(){
+        $(message).fadeOut("fast");
+      });             
+    }
+    else if (uom === ""){       //warning if UOM input is empty
+      var message = $(this).attr("data4");
+      $(message).fadeIn("fast"); 
+      $(message).find(".closeBox, #closeOK").click(function(){
+        $(message).fadeOut("fast");
+      });             
+    }
     else{
       for (var i = 0; i < list.length; i++){          //check if the item is in the list already
-        if (list[i].name === retval) { 
-          e.preventDefault();       
-          var messageDuplicity = $(this).attr("data-infoBoxes");
-          $(messageDuplicity).fadeIn("fast"); 
-          $(messageDuplicity).find(".closeBox, #closeOK").click(function(){
-            $(messageDuplicity).fadeOut("fast");
+        if (list[i].name === item1.name){      
+          var message = $(this).attr("data");
+          $(message).fadeIn("fast"); 
+          $(message).find(".closeBox, #closeOK").click(function(){
+            $(message).fadeOut("fast");
           });
           var duplicite_goods=1;                                     
           break;
         };         
       };
       if (duplicite_goods != 1) {
+      $("#name").val("");
+      $("#measure").val("");
        list.push(item1);   //insertion into the list                            
        $("#tableReg").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"</tr>");  //adding the list data into the table      
        $("#selItems").append("<option>"+list[i].name+"</option>"); //adding the item name to the select element
       }      
     }      
   });      
-  $("#inItem").click(function(e){    
+  $("#inItem").click(function(){    
     var sel = $("#selItems").val();    //user's inputs values read into variables               
     var amount = $("#quantity").val();
     var price = $("#rate").val();
     var d = new Date();
     var dUTC= d.toUTCString();
-
-    if (amount === "" || price === ""){          // avoiding insertion of blank inputs in the list/table
-      e.preventDefault();       
-      var message = $(this).attr("data-infoBoxes2");
+    if (amount === "" || price === ""){          // avoiding insertion of blank inputs in the list/table    
+      var message = $(this).attr("data2");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
         $(message).fadeOut("fast");
@@ -71,8 +77,7 @@ $(document).ready(function(){
     $("#quantity").val("");
     $("#rate").val("");    
   });
-  //console.log(list);
-  
+  //console.log(list); 
   $("#registration, #stockin, #stockout, #onstock, #movements").hide();   //button(div) toggling
   $("#buttons > button").click(function() {
     $("#welcome").hide();

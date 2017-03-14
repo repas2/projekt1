@@ -29,10 +29,10 @@
       <button type="button" id="btnOn" class="btn btn-primary btn-lg">On Stock</button>
       <button type="button" id="btnHist" class="btn btn-primary btn-lg">Movements History</button>    
     </div>
-  	<div id="welcome">
-    	<h1>Welcome</h1> 
-  		<br>
-  		<h2>in Stock Management System</h2>  		
+    <div id="welcome">
+      <h1>Welcome</h1> 
+      <br>
+      <h2>in Stock Management System</h2>     
     </div>
     <div id="overlayBox1">
       <div id="boxReg" class="showWindow">
@@ -40,7 +40,7 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="tableRegWarning">Inputs <u>Goods Name</u> and/or <u>UOM</u> cannot be blank!</p>
+        <p id="tableRegWarning">Inputs <u>Goods Name</u> and <u>UOM</u> cannot be blank!</p>        
         <button id="closeOK">OK</button>  
       </div>
     </div> 
@@ -54,6 +54,26 @@
         <button id="closeOK">OK</button>  
       </div>
     </div> 
+    <div id="overlayBox3">
+      <div id="boxReg" class="showWindow">
+        <div id="boxHead">
+          <p id="warningHead">Warning</p>
+          <span class="closeBox">&times;</span>
+        </div>
+        <p id="tableRegWarningName">Input <u>Goods Name</u> cannot be blank!</p>
+        <button id="closeOK">OK</button>  
+      </div>
+    </div>
+    <div id="overlayBox4">
+      <div id="boxReg" class="showWindow">
+        <div id="boxHead">
+          <p id="warningHead">Warning</p>
+          <span class="closeBox">&times;</span>
+        </div>
+        <p id="tableRegWarningUom">Input <u>UOM</u> cannot be blank!</p>
+        <button id="closeOK">OK</button>  
+      </div>
+    </div>
     <div id="registration">
       <p id="headingReg" class="subHeadings">Stock Registration</p>
       <div class="underlineSub"></div>
@@ -68,7 +88,7 @@
           <option id="opt5">g</option>
         </select>
       </p> 
-      <button type="button" id="insertItem" value="" class="btn btn-success btn-md" data-infoBoxes1="#overlayBox1" data-infoBoxes="#overlayBox">Insert Item</button>
+      <button type="button" id="insertItem" value="" class="btn btn-success btn-md" data="#overlayBox" data1="#overlayBox1" data3="#overlayBox3" data4="#overlayBox4">Insert Item</button>
       <br><br><br><br>
       <ol> 
        <table class="table table-condensed" id="tableReg"  border="2">
@@ -145,7 +165,7 @@
         </table>
       </ol>
     </div>
-	  <div id="onstock">
+    <div id="onstock">
       <p id="headingOn" class="subHeadings">On Stock Status</p> 
       <div class="underlineSub"></div>
       <br><br><br><br><br><br>
@@ -161,10 +181,10 @@
         </table>
       </ol>
     </div>
-	  <div id="movements">
+    <div id="movements">
       <p id="headingHist" class="subHeadings">Goods Movements History</p> 
       <div class="underlineSub"></div>
     </div> 
-   	
+    
   </body>
 </html>
