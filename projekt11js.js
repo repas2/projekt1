@@ -6,7 +6,8 @@ $(document).ready(function(){
   $("#insertItem").click(function(){                    //user's input into variables
     var name = $("#name").val();
     var uom = $("#measure").val();
-    var amount, price;    
+    var amount, price,duplicite_goods; 
+    
     var item1 = {"name": name, "uom": uom, "amount": null, "price": null};          //object declaration    
     if (name === "" && uom === ""){              									//warning if both inputs are empty
       var message = $(this).attr("data1");      
@@ -37,11 +38,11 @@ $(document).ready(function(){
           $(message).find(".closeBox, #closeOK").click(function(){
             $(message).fadeOut("fast");
           });
-          var duplicite_goods=1;                                     
+          duplicite_goods=false;                                     
           break;
         };         
       };
-      if (duplicite_goods != 1) {
+      if (duplicite_goods!=false) {
       	$("#name").val("");
         $("#measure").val("");
         list.push(item1);   //insertion into the list                            
