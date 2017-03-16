@@ -46,26 +46,26 @@ $(document).ready(function(){
       $("#measure").val("");
        list.push(item1);   //insertion into the list                            
        $("#tableReg").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"</tr>");  //adding the list data into the table      
-       $("#selItems").append("<option>"+list[i].name+"</option>"); //adding the item name to the select element
+       $("#selItems, #selItems2").append("<option>"+list[i].name+"</option>"); //adding the item name to the select element
       }      
     }      
   });      
   $("#inItem").click(function(){    
     var sel = $("#selItems").val();    //user's inputs values read into variables               
-    var amount =$("#quantity").val();
+    var amountIn =$("#quantity").val();
     var price = $("#rate").val();
     var d = new Date();
     var ds = d.getDate() +"."+d.getMonth()+". "+d.getFullYear()+"  " 
         + d.getHours() + ":" + d.getMinutes();
     
-   if (sel === "" && amount === "" && price === ""){          // avoiding insertion of all 3 blank inputs in the list/table    
+   if (sel === "" && amountIn === "" && price === ""){          // avoiding insertion of all 3 blank inputs in the list/table    
       var message = $(this).attr("data5");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
         $(message).fadeOut("fast");
       }); 
     } 
-    else if (sel === "" && amount=== ""){       //warning if sel and input is empty
+    else if (sel === "" && amountIn=== ""){       //warning if sel and input is empty
       var message = $(this).attr("data6");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
@@ -79,7 +79,7 @@ $(document).ready(function(){
         $(message).fadeOut("fast");
       });             
     }
-    else if (amount === "" && price === ""){       //warning if amount and price input is empty
+    else if (amountIn === "" && price === ""){       //warning if amount and price input is empty
       var message = $(this).attr("data8");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
@@ -93,7 +93,7 @@ $(document).ready(function(){
         $(message).fadeOut("fast");
       });             
     }
-    else if (amount === ""){       //warning if amount input is empty
+    else if (amountIn === ""){       //warning if amount input is empty
       var message = $(this).attr("data10");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
@@ -107,7 +107,7 @@ $(document).ready(function(){
         $(message).fadeOut("fast");
       });             
     }
-    else if(isNaN(amount) && isNaN(price) || isNaN(amount) || isNaN(price)){//if inputs amount and price are not numbers
+    else if(isNaN(amountIn) && isNaN(price) || isNaN(amountIn) || isNaN(price)){//if inputs amount and price are not numbers
       var message = $(this).attr("data12");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
@@ -117,18 +117,46 @@ $(document).ready(function(){
     else{  
       for (var j=0; j<list.length; j++){ //searching the object to add the properties to
         if (sel === list[j].name){    
-          list[j].amount = parseInt(amount);  // adding the properties to the object
+          list[j].amount += parseInt(amountIn);  // adding the properties to the object
           list[j].price = parseInt(price);    
           break;  
         };
       }
-      $("#tableIn").append("<tr>"+"<td>"+list[j].name+"</td>"+"<td>"+list[j].uom+"</td>"+"<td>"+list[j].amount+"</td>"+"<td>"+list[j].price+"</td>"+"<td>"+ds +"</td>"+"</tr>");
+      $("#tableIn").append("<tr>"+"<td>"+list[j].name+"</td>"+"<td>"+list[j].uom+"</td>"+"<td>"+amountIn+"</td>"+"<td>"+list[j].price+"</td>"+"<td>"+ds +"</td>"+"</tr>");
     
     $("select[id=selItems]").val(""); //clearing inputs
     $("#quantity").val("");
     $("#rate").val(""); 
     };   
   });
+  
+  $("#outItem").click(function(){  
+       var sel = $("#selItems2").val();    //user's inputs values read into variables               
+    var amountOut =$("#quantity2").val();
+    var d = new Date();
+    var ds = d.getDate() +"."+d.getMonth()+". "+d.getFullYear()+"  " 
+        + d.getHours() + ":" + d.getMinutes();
+        
+     for (var i=0; i<list.length; i++){ //searching the object to change the property
+        if (sel === list[i].name){    
+          list[i].amount -= parseInt(amountOut);  // change of property "amount"
+          break;  
+        };
+      };
+   $("#tableOut").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"<td>"+"-"+amountOut+"</td>"+"<td>"+list[i].price+"</td>"+"<td>"+ds+"</td>"+"</tr>");
+   
+    $("#selItems2").val(""); //clearing inputs
+    $("#quantity2").val("");
+  });
+  
+   $("#btnOn").click(function(){
+        $("#tbon").empty();      //clear and populate table for on stock status
+        for (var i=0; i<list.length; i++){     
+        
+         $("#tbon").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"<td>"+list[i].amount+"</td>"+"<td>"+list[i].price+"</td>"+"</tr>");
+         }
+    });
+  
   console.log(list); 
   $("#registration, #stockin, #stockout, #onstock, #movements").hide();   //button(div) toggling
   $("#buttons > button").click(function() {
