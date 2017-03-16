@@ -29,7 +29,7 @@ $(document).ready(function(){
         $(message).fadeOut("fast");
       });             
     }
-    else{0
+    else{
       for (var i = 0; i < list.length; i++){          //check if the item is in the list already
         if (list[i].name === item1.name){      
           var message = $(this).attr("data");
@@ -37,7 +37,7 @@ $(document).ready(function(){
           $(message).find(".closeBox, #closeOK").click(function(){
             $(message).fadeOut("fast");
           });
-          console.log(duplicite_goods=false);                                     
+          duplicite_goods=false;                                     
           break;
         };         
       };
@@ -56,16 +56,15 @@ $(document).ready(function(){
     var price = $("#rate").val();
     var d = new Date();
     var ds = d.getDate() +"."+d.getMonth()+". "+d.getFullYear()+"  " 
-        + d.getHours() + ":" + d.getMinutes();
-    
-   if (sel === "" && amountIn === "" && price === ""){          // avoiding insertion of all 3 blank inputs in the list/table    
+        + d.getHours() + ":" + d.getMinutes();    
+    if (sel === "" && amountIn === "" && price === ""){          // avoiding insertion of all 3 blank inputs in the list/table    
       var message = $(this).attr("data5");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
         $(message).fadeOut("fast");
       }); 
     } 
-    else if (sel === "" && amountIn=== ""){       //warning if sel and input is empty
+    else if (sel === "" && amountIn === ""){       //warning if sel and input is empty
       var message = $(this).attr("data6");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
@@ -123,41 +122,57 @@ $(document).ready(function(){
         };
       }
       $("#tableIn").append("<tr>"+"<td>"+list[j].name+"</td>"+"<td>"+list[j].uom+"</td>"+"<td>"+amountIn+"</td>"+"<td>"+list[j].price+"</td>"+"<td>"+ds +"</td>"+"</tr>");
-    
-    $("select[id=selItems]").val(""); //clearing inputs
-    $("#quantity").val("");
-    $("#rate").val(""); 
-    };   
-  });
-  
+      $("select[id=selItems]").val(""); //clearing inputs
+      $("#quantity").val("");
+      $("#rate").val(""); 
+    }   
+  });  
   $("#outItem").click(function(){  
-       var sel = $("#selItems2").val();    //user's inputs values read into variables               
+    var sel = $("#selItems2").val();    //user's inputs values read into variables               
     var amountOut =$("#quantity2").val();
     var d = new Date();
     var ds = d.getDate() +"."+d.getMonth()+". "+d.getFullYear()+"  " 
-        + d.getHours() + ":" + d.getMinutes();
-        
-     for (var i=0; i<list.length; i++){ //searching the object to change the property
+        + d.getHours() + ":" + d.getMinutes(); 
+    if (sel === "" && amountOut === ""){          // avoiding insertion of all  blank inputs in the list/table    
+      var message = $(this).attr("data13");
+      $(message).fadeIn("fast"); 
+      $(message).find(".closeBox, #closeOK").click(function(){
+        $(message).fadeOut("fast");
+      }); 
+    } 
+    else if (sel === ""){       //warning if sel input is empty
+      var message = $(this).attr("data14");
+      $(message).fadeIn("fast"); 
+      $(message).find(".closeBox, #closeOK").click(function(){
+        $(message).fadeOut("fast");
+      });             
+    }
+    else if (amountOut === ""){       //warning if amountOut and price input is empty
+      var message = $(this).attr("data15");
+      $(message).fadeIn("fast"); 
+      $(message).find(".closeBox, #closeOK").click(function(){
+        $(message).fadeOut("fast");
+      });             
+    }
+    else{      
+      for (var i=0; i<list.length; i++){ //searching the object to change the property
         if (sel === list[i].name){    
           list[i].amount -= parseInt(amountOut);  // change of property "amount"
           break;  
         };
-      };
-   $("#tableOut").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"<td>"+"-"+amountOut+"</td>"+"<td>"+list[i].price+"</td>"+"<td>"+ds+"</td>"+"</tr>");
-   
-    $("#selItems2").val(""); //clearing inputs
-    $("#quantity2").val("");
-  });
-  
-   $("#btnOn").click(function(){
-        $("#tbon").empty();      //clear and populate table for on stock status
-        for (var i=0; i<list.length; i++){     
+      };     
+      $("#tableOut").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"<td>"+"-"+amountOut+"</td>"+"<td>"+list[i].price+"</td>"+"<td>"+ds+"</td>"+"</tr>");
+      $("#selItems2").val(""); //clearing inputs
+      $("#quantity2").val("");
+    }
+  });    
+  $("#btnOn").click(function(){
+    $("#tbon").empty();      //clear and populate table for on stock status
+      for (var i=0; i<list.length; i++){     
         
          $("#tbon").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"<td>"+list[i].amount+"</td>"+"<td>"+list[i].price+"</td>"+"</tr>");
          }
-    });
-  
-  console.log(list); 
+    });    
   $("#registration, #stockin, #stockout, #onstock, #movements").hide();   //button(div) toggling
   $("#buttons > button").click(function() {
     $("#welcome").hide();
