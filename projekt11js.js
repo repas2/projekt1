@@ -130,9 +130,15 @@ $(document).ready(function(){
   $("#outItem").click(function(){  
     var sel = $("#selItems2").val();    //user's inputs values read into variables               
     var amountOut =$("#quantity2").val();
-    var d = new Date();
-    var ds = d.getDate() +"."+d.getMonth()+". "+d.getFullYear()+"  " 
-        + d.getHours() + ":" + d.getMinutes(); 
+     var d = new Date();
+    var month = d.getMonth()+1;
+    var hours = d.getHours(); 
+    var minutes = d.getMinutes();
+     if (minutes < 10){
+     minutes = "0" + minutes
+    }; 
+    var ds = d.getDate() +"."+ month +". "+d.getFullYear()+"  " 
+        + hours+ ":" + minutes ; 
     if (sel === "" && amountOut === ""){          // avoiding insertion of all  blank inputs in the list/table    
       var message = $(this).attr("data13");
       $(message).fadeIn("fast"); 
