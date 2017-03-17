@@ -156,12 +156,22 @@ $(document).ready(function(){
     }
     else{      
       for (var i=0; i<list.length; i++){ //searching the object to change the property
-        if (sel === list[i].name){    
+        if (sel === list[i].name){  
+            if (amountOut>list[i].amount) { //availability check
+                  var message = $(this).attr("data16");
+      $(message).fadeIn("fast"); 
+      $(message).find(".closeBox, #closeOK").click(function(){
+        $(message).fadeOut("fast"); 
+      });          
+                 break;
+            }
+            
           list[i].amount -= parseInt(amountOut);  // change of property "amount"
+           $("#tableOut").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"<td>"+"-"+amountOut+"</td>"+"<td>"+list[i].price+"</td>"+"<td>"+ds+"</td>"+"</tr>");
           break;  
         };
       };     
-      $("#tableOut").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"<td>"+"-"+amountOut+"</td>"+"<td>"+list[i].price+"</td>"+"<td>"+ds+"</td>"+"</tr>");
+     // $("#tableOut").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"<td>"+"-"+amountOut+"</td>"+"<td>"+list[i].price+"</td>"+"<td>"+ds+"</td>"+"</tr>");
       $("#selItems2").val(""); //clearing inputs
       $("#quantity2").val("");
     }

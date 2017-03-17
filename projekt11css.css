@@ -259,7 +259,7 @@ body{
     background-color: #BBBBBB;
     opacity: 0.8;
   }
-  #overlayBox, #overlayBox1, #overlayBox2, #overlayBox3, #overlayBox4, #overlayBox5, #overlayBox6, #overlayBox7, #overlayBox8, #overlayBox9, #overlayBox10, #overlayBox11, #overlayBox12, #overlayBox13, #overlayBox14, #overlayBox15{
+  #overlayBox, #overlayBox1, #overlayBox2, #overlayBox3, #overlayBox4, #overlayBox5, #overlayBox6, #overlayBox7, #overlayBox8, #overlayBox9, #overlayBox10, #overlayBox11, #overlayBox12, #overlayBox13, #overlayBox14, #overlayBox15, #overlayBox16{
     width: 100%;
     height:100%;
     background-color: rgba(40, 40, 40, 0.5);
