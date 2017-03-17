@@ -154,6 +154,13 @@ $(document).ready(function(){
         $(message).fadeOut("fast");
       });             
     }
+    else if(isNaN(amountOut)){
+      var message = $(this).attr("data17");
+      $(message).fadeIn("fast"); 
+      $(message).find(".closeBox, #closeOK").click(function(){
+        $(message).fadeOut("fast"); 
+      });    
+    }
     else{      
       for (var i=0; i<list.length; i++){ //searching the object to change the property
         if (sel === list[i].name){  
