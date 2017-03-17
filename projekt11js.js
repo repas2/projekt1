@@ -171,7 +171,7 @@ $(document).ready(function(){
           break;  
         };
       };     
-     // $("#tableOut").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"<td>"+"-"+amountOut+"</td>"+"<td>"+list[i].price+"</td>"+"<td>"+ds+"</td>"+"</tr>");
+    
       $("#selItems2").val(""); //clearing inputs
       $("#quantity2").val("");
     }

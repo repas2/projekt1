@@ -227,7 +227,7 @@ body{
     position: relative;
     left: 25%;
   }  
-  #tableIn, #tableOn, #tableOut{
+  #tableIn, #tableOn, #tableOut, #tableHis{
     text-align: center; 
     margin-left: -2%;
     margin-top: 5%;
