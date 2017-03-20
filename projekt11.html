@@ -15,20 +15,24 @@
   <style>  
   </style>
   </head>
-  <body>
-    <div class="container-fluid" id="heading">  
-      <div class="row">
-        <div class="col-sm-5"><h1>STOCKmanagement</h1></div>
-        <div class="col-sm-7"><h6>Repas2 Slovakia, s.r.o.</h6></div>
-      </div>
-    </div>
-    <div id="buttons">
-      <button type="button" id="btnReg" class="btn btn-primary btn-lg">Stock Registration</button>
-      <button type="button" id="btnIn" class="btn btn-primary btn-lg">Stock In</button>
-      <button type="button" id="btnOut" class="btn btn-primary btn-lg">Stock Out</button>
-      <button type="button" id="btnOn" class="btn btn-primary btn-lg">On Stock</button>
-      <button type="button" id="btnHist" class="btn btn-primary btn-lg">Movements History</button>    
-    </div>
+  <body>  
+    <div id="headingLine1"></div>   
+    <div class="container-fluid" id="heading">       
+      <div class="row">         
+          <div class="col-sm-5"><h1>STOCKmanagement</h1></div>
+          <div class="col-sm-7"><h6>Repas2 Slovakia, s.r.o.</h6></div>          
+      </div>           
+    </div>  
+    <div id="headingLine2"></div>     
+    <div class="btn-group" id="buttons">
+      <div id="buttonBar">
+        <button type="button" id="btnReg" class="btn btn-primary btn-lg">Stock Registration</button>
+        <button type="button" id="btnIn" class="btn btn-primary btn-lg">Stock In</button>
+        <button type="button" id="btnOut" class="btn btn-primary btn-lg">Stock Out</button>
+        <button type="button" id="btnOn" class="btn btn-primary btn-lg">On Stock</button>
+        <button type="button" id="btnHist" class="btn btn-primary btn-lg">Movements History</button>  
+      </div>   
+    </div>    
     <div id="welcome">
       <h1>Welcome</h1> 
       <br>
@@ -40,7 +44,7 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="tableRegWarning">Inputs <u>Goods Name</u> and <u>UOM</u> cannot be blank!</p>        
+        <p id="tableRegWarning">Inputs <u>Goods Name</u> and <u>UOM</u> cannot be blank</p>        
         <button id="closeOK">OK</button>  
       </div>
     </div> 
@@ -50,7 +54,7 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="duplicityWarning">This item is already in the system!</p>
+        <p id="duplicityWarning">This item is already in the system</p>
         <button id="closeOK">OK</button>  
       </div>
     </div> 
@@ -60,7 +64,7 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="tableRegWarningName">Input <u>Goods Name</u> cannot be blank!</p>
+        <p id="tableRegWarningName">Input <u>Goods Name</u> cannot be blank</p>
         <button id="closeOK">OK</button>  
       </div>
     </div>
@@ -70,14 +74,14 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="tableRegWarningUom">Input <u>UOM</u> cannot be blank!</p>
+        <p id="tableRegWarningUom">Input <u>UOM</u> cannot be blank</p>
         <button id="closeOK">OK</button>  
       </div>
     </div>
     <div id="registration">
       <p id="headingReg" class="subHeadings">Stock Registration</p>
-      <div class="underlineSub"></div>
-      <p id="goodsName">Goods Name: <input type="text" id="name" value=""> </p>
+      <div class="underlineSub"></div>      
+      <p id="goodsName">Goods Type: <input type="text" id="name" value=""> </p>
       <p id="enterUOM">UOM: 
         <select id="measure">
           <option selected="selected" value="">choose uom</option>
@@ -91,7 +95,7 @@
       <button type="button" id="insertItem" value="" class="btn btn-success btn-md" data="#overlayBox" data1="#overlayBox1" data3="#overlayBox3" data4="#overlayBox4">Insert Item</button>
       <br><br><br><br>
       <ol> 
-       <table class="table table-condensed" id="tableReg"  border="2">
+       <table class="table table-condensed" id="tableReg">
         <tr>               
           <th><b>NAME</b></th>
           <th><b>UOM</b></th>
@@ -105,7 +109,7 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="tableInWarning">Inputs <u>Goods Type</u>, <u>Amount</u> and <u>Price</u> cannot be blank!</p>
+        <p id="tableInWarning">Inputs <u>Goods Type</u>, <u>Amount</u> and <u>Price</u> cannot be blank</p>
         <button id="closeOK">OK</button>  
       </div>
     </div>
@@ -115,7 +119,7 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="tableInWarning">Inputs <u>Goods Type</u> and <u>Amount</u> cannot be blank!</p>
+        <p id="tableInWarning">Inputs <u>Goods Type</u> and <u>Amount</u> cannot be blank</p>
         <button id="closeOK">OK</button>  
       </div>
     </div>
@@ -125,7 +129,7 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="tableInWarning">Inputs <u>Goods Type</u> and <u>Price</u> cannot be blank!</p>
+        <p id="tableInWarning">Inputs <u>Goods Type</u> and <u>Price</u> cannot be blank</p>
         <button id="closeOK">OK</button>  
       </div>
     </div>
@@ -135,7 +139,7 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="tableInWarning">Inputs <u>Amount</u> and <u>Price</u> cannot be blank!</p>
+        <p id="tableInWarning">Inputs <u>Amount</u> and <u>Price</u> cannot be blank</p>
         <button id="closeOK">OK</button>  
       </div>
     </div>
@@ -145,7 +149,7 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="tableInWarning">Input <u>Goods Type</u> cannot be blank!</p>
+        <p id="tableInWarning">Input <u>Goods Type</u> cannot be blank</p>
         <button id="closeOK">OK</button>  
       </div>
     </div>
@@ -155,7 +159,7 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="tableInWarning">Input <u>Amount</u> cannot be blank!</p>
+        <p id="tableInWarning">Input <u>Amount</u> cannot be blank</p>
         <button id="closeOK">OK</button>  
       </div>
     </div>
@@ -165,7 +169,7 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="tableInWarning">Input <u>Price</u> cannot be blank!</p>
+        <p id="tableInWarning">Input <u>Price</u> cannot be blank</p>
         <button id="closeOK">OK</button>  
       </div>
     </div>
@@ -175,7 +179,7 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="tableInWarning">Inputs <u>Amount</u> and <u>Price</u> must be numbers!</p>
+        <p id="tableInWarning">Inputs <u>Amount</u> and <u>Price</u> must be numbers</p>
         <button id="closeOK">OK</button>  
       </div>
     </div>
@@ -193,10 +197,9 @@
       <p id="enterAmount">Amount: <input type="text" id="quantity" value=""> </p>
       <p id="enterPrice">Price: <input type="text" id="rate" value=""> </p>            
       <button type="button" id="inItem" value="" class="btn btn-success btn-md" data5="#overlayBox5" data6="#overlayBox6" data7="#overlayBox7" data8="#overlayBox8" data9="#overlayBox9" data10="#overlayBox10" data11="#overlayBox11" data12="#overlayBox12">Stock In Item</button>
-      <br>
-      <br>
+      <br><br><br><br>      
       <ol> 
-        <table class="table table-condensed" id="tableIn" border="2">
+        <table class="table table-condensed" id="tableIn">
           <tr>                
             <th><b>NAME</b></th>
             <th><b>UOM</b></th>
@@ -213,7 +216,7 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="tableInWarning">Inputs <u>Goods Type</u> and <u>Amount</u> cannot be blank!</p>
+        <p id="tableInWarning">Inputs <u>Goods Type</u> and <u>Amount</u> cannot be blank</p>
         <button id="closeOK">OK</button>  
       </div>
     </div>
@@ -223,7 +226,7 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="tableInWarning">Input <u>Goods Type</u> cannot be blank!</p>
+        <p id="tableInWarning">Input <u>Goods Type</u> cannot be blank</p>
         <button id="closeOK">OK</button>  
       </div>
     </div>
@@ -233,7 +236,7 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="tableInWarning">Input <u>Amount</u> cannot be blank!</p>
+        <p id="tableInWarning">Input <u>Amount</u> cannot be blank</p>
         <button id="closeOK">OK</button>  
       </div>
     </div>
@@ -243,7 +246,7 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="tableInWarning">Requested amount is not available!</p>
+        <p id="tableInWarning">Requested amount is not available</p>
         <button id="closeOK">OK</button>  
       </div>
      </div>
@@ -253,7 +256,7 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="tableInWarning">Input <u>Amount</u> must be number!</p>
+        <p id="tableInWarning">Input <u>Amount</u> must be number</p>
         <button id="closeOK">OK</button>  
       </div>
     </div>
@@ -271,10 +274,9 @@
       <p id="enterAmount2">Amount: <input type="text" id="quantity2" value=""> </p>
                 
       <button type="button" id="outItem" value="" class="btn btn-success btn-md" data13="#overlayBox13" data14="#overlayBox14" data15="#overlayBox15" data16="#overlayBox16", data17="#overlayBox17">Stock Out Item</button>
-      <br>
-      <br>
+      <br><br><br><br> 
       <ol> 
-        <table class="table table-condensed" id="tableOut" border="2">
+        <table class="table table-condensed" id="tableOut">
           <tr>                
             <th><b>NAME</b></th>
             <th><b>UOM</b></th>
@@ -284,13 +286,14 @@
           </tr>
         </table>
       </ol>
+      <br><br><br>      
     </div>
     <div id="onstock">
       <p id="headingOn" class="subHeadings">On Stock Status</p> 
       <div class="underlineSub"></div>
-      <br><br><br><br><br><br>
+      <br><br><br><br><br><br><br><br>
       <ol> 
-        <table class="table table-condensed" id="tableOn" border="2">
+        <table class="table table-condensed" id="tableOn">
           <thead>
           <tr>                
             <th><b>NAME</b></th>
@@ -307,20 +310,16 @@
     <div id="movements">
       <p id="headingHist" class="subHeadings">Goods Movements History</p> 
       <div class="underlineSub"></div>
-      <br><br><br><br><br><br>
+      <br><br><br><br><br><br><br><br>
       <ol> 
-        <table class="table table-condensed" id="tableHis" border="2">
-          <thead>
+        <table class="table table-condensed" id="tableHis">          
           <tr>                
             <th><b>NAME</b></th>
             <th><b>UOM</b></th>
             <th><b>AMOUNT</b></th>
             <th><b>PRICE</b></th>
             <th><b>DATE</b></th>          
-          </tr>
-          </thead>
-           <tbody id=tbh>
-          </tbody>
+          </tr>          
         </table>
       </ol>
     </div> 
