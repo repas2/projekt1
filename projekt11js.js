@@ -125,8 +125,10 @@ $(document).ready(function(){
       $("select[id=selItems]").val(""); //clearing inputs
       $("#quantity").val("");
       $("#rate").val(""); 
-    }   
-  });  
+      $("#tbh").append("<tr>"+"<td>"+list[j].name+"</td>"+"<td>"+list[j].uom+"</td>"+"<td>"+amountIn+"</td>"+"<td>"+list[j].price+"</td>"+"<td>"+ds+"</td>"+"</tr>");
+
+     }     
+     });  
   $("#outItem").click(function(){  
     var sel = $("#selItems2").val();    //user's inputs values read into variables               
     var amountOut =$("#quantity2").val();
@@ -181,7 +183,9 @@ $(document).ready(function(){
             
           list[i].amount -= parseInt(amountOut);  // change of property "amount"
            $("#tableOut").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"<td>"+"-"+amountOut+"</td>"+"<td>"+list[i].price+"</td>"+"<td>"+ds+"</td>"+"</tr>");
-          break;  
+           $("#tbh").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"<td>"+"-"+amountOut+"</td>"+"<td>"+list[i].price+"</td>"+"<td>"+ds+"</td>"+"</tr>");
+
+           break;  
         };
       };     
     
