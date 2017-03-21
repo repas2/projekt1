@@ -45,7 +45,7 @@ $(document).ready(function(){
       $("#name").val("");
       $("#measure").val("");
        list.push(item1);   //insertion into the list                            
-       $("#tableReg").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"</tr>");  //adding the list data into the table      
+       $("#tbreg").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"</tr>");  //adding the list data into the table      
        $("#selItems, #selItems2").append("<option>"+list[i].name+"</option>"); //adding the item name to the select element
       }      
     }      
@@ -106,7 +106,8 @@ $(document).ready(function(){
         $(message).fadeOut("fast");
       });             
     }
-    else if(isNaN(amountIn) && isNaN(price) || isNaN(amountIn) || isNaN(price)){//if inputs amount and price are not numbers
+    //if inputs amount and price are not numbers or are 0 or negative numbers
+    else if(isNaN(amountIn) && isNaN(price) || isNaN(amountIn) || isNaN(price) || price <=0 && amountIn <=0 || price<=0 || amountIn <=0){
       var message = $(this).attr("data12");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
@@ -121,23 +122,22 @@ $(document).ready(function(){
           break;  
         };
       }
-      $("#tableIn").append("<tr>"+"<td>"+list[j].name+"</td>"+"<td>"+list[j].uom+"</td>"+"<td>"+amountIn+"</td>"+"<td>"+list[j].price+"</td>"+"<td>"+ds +"</td>"+"</tr>");
+      $("#tbin").append("<tr>"+"<td>"+list[j].name+"</td>"+"<td>"+list[j].uom+"</td>"+"<td>"+amountIn+"</td>"+"<td>"+list[j].price+"</td>"+"<td>"+ds +"</td>"+"</tr>");
       $("select[id=selItems]").val(""); //clearing inputs
       $("#quantity").val("");
       $("#rate").val(""); 
       $("#tbh").append("<tr>"+"<td>"+list[j].name+"</td>"+"<td>"+list[j].uom+"</td>"+"<td>"+amountIn+"</td>"+"<td>"+list[j].price+"</td>"+"<td>"+ds+"</td>"+"</tr>");
-
-     }     
-     });  
+    }   
+  });  
   $("#outItem").click(function(){  
     var sel = $("#selItems2").val();    //user's inputs values read into variables               
     var amountOut =$("#quantity2").val();
-     var d = new Date();
+    var d = new Date();
     var month = d.getMonth()+1;
     var hours = d.getHours(); 
     var minutes = d.getMinutes();
-     if (minutes < 10){
-     minutes = "0" + minutes
+    if (minutes < 10){
+      minutes = "0" + minutes
     }; 
     var ds = d.getDate() +"."+ month +". "+d.getFullYear()+"  " 
         + hours+ ":" + minutes ; 
@@ -162,7 +162,7 @@ $(document).ready(function(){
         $(message).fadeOut("fast");
       });             
     }
-    else if(isNaN(amountOut)){
+    else if(isNaN(amountOut) || amountOut <=0){
       var message = $(this).attr("data17");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
@@ -172,23 +172,20 @@ $(document).ready(function(){
     else{      
       for (var i=0; i<list.length; i++){ //searching the object to change the property
         if (sel === list[i].name){  
-            if (amountOut>list[i].amount) { //availability check
-                  var message = $(this).attr("data16");
-      $(message).fadeIn("fast"); 
-      $(message).find(".closeBox, #closeOK").click(function(){
-        $(message).fadeOut("fast"); 
-      });          
-                 break;
-            }
-            
+          if (amountOut>list[i].amount) {            //positive numbers check
+            var message = $(this).attr("data16");
+            $(message).fadeIn("fast"); 
+            $(message).find(".closeBox, #closeOK").click(function(){
+              $(message).fadeOut("fast"); 
+            });          
+            break;
+          }            
           list[i].amount -= parseInt(amountOut);  // change of property "amount"
-           $("#tableOut").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"<td>"+"-"+amountOut+"</td>"+"<td>"+list[i].price+"</td>"+"<td>"+ds+"</td>"+"</tr>");
-           $("#tbh").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"<td>"+"-"+amountOut+"</td>"+"<td>"+list[i].price+"</td>"+"<td>"+ds+"</td>"+"</tr>");
-
-           break;  
+          $("#tbout").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"<td>"+"-"+amountOut+"</td>"+"<td>"+list[i].price+"</td>"+"<td>"+ds+"</td>"+"</tr>");
+          $("#tbh").append("<tr>"+"<td>"+list[i].name+"</td>"+"<td>"+list[i].uom+"</td>"+"<td>"+"-"+amountOut+"</td>"+"<td>"+list[i].price+"</td>"+"<td>"+ds+"</td>"+"</tr>");
+          break;  
         };
       };     
-    
       $("#selItems2").val(""); //clearing inputs
       $("#quantity2").val("");
     }

@@ -95,12 +95,16 @@
       <button type="button" id="insertItem" value="" class="btn btn-success btn-md" data="#overlayBox" data1="#overlayBox1" data3="#overlayBox3" data4="#overlayBox4">Insert Item</button>
       <br><br><br><br>
       <ol> 
-       <table class="table table-condensed" id="tableReg">
-        <tr>               
-          <th><b>NAME</b></th>
-          <th><b>UOM</b></th>
-        </tr>
-       </table>
+        <table class="table table-condensed" id="tableReg">
+          <thead>
+            <tr>               
+              <th><b>NAME</b></th>
+              <th><b>UOM</b></th>
+            </tr>
+          </thead>
+          <tbody id="tbreg">
+          </tbody>
+        </table>
       </ol>      
     </div>
     <div id="overlayBox5">
@@ -179,7 +183,7 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="tableInWarning">Inputs <u>Amount</u> and <u>Price</u> must be numbers</p>
+        <p id="tableInWarning">Inputs <u>Amount</u> and <u>Price</u> must be positive numbers</p>
         <button id="closeOK">OK</button>  
       </div>
     </div>
@@ -200,13 +204,17 @@
       <br><br><br><br>      
       <ol> 
         <table class="table table-condensed" id="tableIn">
-          <tr>                
-            <th><b>NAME</b></th>
-            <th><b>UOM</b></th>
-            <th><b>AMOUNT</b></th>
-            <th><b>PRICE</b></th>
-            <th><b>DATE</b></th>
-          </tr>
+          <thead>
+            <tr>                
+              <th><b>NAME</b></th>
+              <th><b>UOM</b></th>
+              <th><b>AMOUNT</b></th>
+              <th><b>PRICE</b></th>
+              <th><b>DATE</b></th>
+            </tr>
+          </thead> 
+          <tbody id="tbin">            
+          </tbody>
         </table>
       </ol>
     </div>
@@ -246,7 +254,7 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="tableInWarning">Requested amount is not available</p>
+        <p id="tableInWarning">Requested amount is not available amount</p>
         <button id="closeOK">OK</button>  
       </div>
      </div>
@@ -256,7 +264,7 @@
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="tableInWarning">Input <u>Amount</u> must be number</p>
+        <p id="tableInWarning">Input <u>Amount</u> must be a positive number</p>
         <button id="closeOK">OK</button>  
       </div>
     </div>
@@ -277,13 +285,17 @@
       <br><br><br><br> 
       <ol> 
         <table class="table table-condensed" id="tableOut">
-          <tr>                
-            <th><b>NAME</b></th>
-            <th><b>UOM</b></th>
-            <th><b>AMOUNT</b></th>
-            <th><b>PRICE</b></th>
-            <th><b>DATE</b></th>
-          </tr>
+          <thead>
+            <tr>                
+              <th><b>NAME</b></th>
+              <th><b>UOM</b></th>
+              <th><b>AMOUNT</b></th>
+              <th><b>PRICE</b></th>
+              <th><b>DATE</b></th>
+            </tr>
+          </thead> 
+          <tbody id="tbout">            
+          </tbody>
         </table>
       </ol>
       <br><br><br>      
