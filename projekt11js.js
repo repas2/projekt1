@@ -29,6 +29,13 @@ $(document).ready(function(){
         $(message).fadeOut("fast");
       });             
     }
+     else if (!isNaN(name)){      //warning if name input is empty 
+      var message = $(this).attr("data18");
+      $(message).fadeIn("fast"); 
+      $(message).find(".closeBox, #closeOK").click(function(){
+        $(message).fadeOut("fast");
+      });             
+    }
     else{
       for (var i = 0; i < list.length; i++){          //check if the item is in the list already
         if (list[i].name === item1.name){      
