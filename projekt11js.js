@@ -62,7 +62,7 @@ $(document).ready(function(){
     var amountIn =$("#quantity").val();
     var price = $("#rate").val();
     var d = new Date();
-    var ds = d.getDate() +"."+d.getMonth()+". "+d.getFullYear()+"  " 
+    var ds = d.getDate() +"."+(d.getMonth()+1)". "+d.getFullYear()+"  " 
         + d.getHours() + ":" + d.getMinutes();    
     if (sel === "" && amountIn === "" && price === ""){          // avoiding insertion of all 3 blank inputs in the list/table    
       var message = $(this).attr("data5");
