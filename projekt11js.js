@@ -9,28 +9,32 @@ $(document).ready(function(){
     var amount, price, duplicite_goods;
     var item1 = {"name": name, "uom": uom, "amount": null, "price": null};          //object declaration   
     if (name === "" && uom === ""){   //warning if both inputs are empty    
-      var message = $(this).attr("data1");
+      $("#modalWarning").text("Inputs Goods Name and UOM cannot be blank");
+      var message=$(this).attr("data");  
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
         $(message).fadeOut("fast");
       });       
     }
     else if (name === ""){      //warning if name input is empty 
-      var message = $(this).attr("data3");
+     $("#modalWarning").text("Input Goods Name cannot be blank");
+      var message = $(this).attr("data");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
         $(message).fadeOut("fast");
       });             
     }
     else if (uom === ""){       //warning if UOM input is empty
-      var message = $(this).attr("data4");
+      $("#modalWarning").text("Input UOM cannot be blank");
+      var message = $(this).attr("data");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
         $(message).fadeOut("fast");
       });             
     }
      else if (!isNaN(name)){      //warning if name input is empty 
-      var message = $(this).attr("data18");
+     $("#modalWarning").text("Letters are required!");
+      var message = $(this).attr("data");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
         $(message).fadeOut("fast");
@@ -38,7 +42,8 @@ $(document).ready(function(){
     }
     else{
       for (var i = 0; i < list.length; i++){          //check if the item is in the list already
-        if (list[i].name === item1.name){      
+        if (list[i].name === item1.name){ 
+         $("#modalWarning").text("This Item is already in the system");     
           var message = $(this).attr("data");
           $(message).fadeIn("fast"); 
           $(message).find(".closeBox, #closeOK").click(function(){
@@ -65,49 +70,56 @@ $(document).ready(function(){
     var ds = d.getDate() +"."+(d.getMonth()+1)+". "+d.getFullYear()+"  " 
         + d.getHours() + ":" + d.getMinutes();    
     if (sel === "" && amountIn === "" && price === ""){          // avoiding insertion of all 3 blank inputs in the list/table    
-      var message = $(this).attr("data5");
+       $("#modalWarning").text("Inputs Goods Type, Amount and Price cannot be blank");
+      var message = $(this).attr("data");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
         $(message).fadeOut("fast");
       }); 
     } 
     else if (sel === "" && amountIn === ""){       //warning if sel and input is empty
-      var message = $(this).attr("data6");
+       $("#modalWarning").text("Inputs Goods Type and Amount cannot be blank");
+      var message = $(this).attr("data");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
         $(message).fadeOut("fast");
       });             
     }
     else if (sel === "" && price === ""){       //warning if sel and price input is empty
-      var message = $(this).attr("data7");
+       $("#modalWarning").text("Inputs Goods Type and Price cannot be blank");
+      var message = $(this).attr("data");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
         $(message).fadeOut("fast");
       });             
     }
     else if (amountIn === "" && price === ""){       //warning if amount and price input is empty
-      var message = $(this).attr("data8");
+       $("#modalWarning").text("Inputs Amount and Price cannot be blank");
+      var message = $(this).attr("data");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
         $(message).fadeOut("fast");
       });             
     }
     else if (sel === ""){       //warning if goods type input is empty
-      var message = $(this).attr("data9");
+      $("#modalWarning").text("Input Goods Type cannot be blank");
+      var message = $(this).attr("data");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
         $(message).fadeOut("fast");
       });             
     }
     else if (amountIn === ""){       //warning if amount input is empty
-      var message = $(this).attr("data10");
+       $("#modalWarning").text("Input Amount cannot be blank");
+      var message = $(this).attr("data");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
         $(message).fadeOut("fast");
       });             
     }
     else if (price === ""){       //warning if price input is empty
-      var message = $(this).attr("data11");
+      $("#modalWarning").text("Input Price cannot be blank");
+      var message = $(this).attr("data");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
         $(message).fadeOut("fast");
@@ -115,7 +127,8 @@ $(document).ready(function(){
     }
     //if inputs amount and price are not numbers or are 0 or negative numbers
     else if(isNaN(amountIn) && isNaN(price) || isNaN(amountIn) || isNaN(price) || price <=0 && amountIn <=0 || price<=0 || amountIn <=0){
-      var message = $(this).attr("data12");
+      $("#modalWarning").text("Inputs Amount and Price must be positive numbers");
+      var message = $(this).attr("data");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
       $(message).fadeOut("fast");
@@ -124,8 +137,8 @@ $(document).ready(function(){
     else{  
       for (var j=0; j<list.length; j++){ //searching the object to add the properties to
         if (sel === list[j].name){    
-          list[j].amount += parseInt(amountIn);  // adding the properties to the object
-          list[j].price = parseInt(price);    
+          list[j].amount += parseFloat(amountIn);  // adding the properties to the object
+          list[j].price = parseFloat(price);    
           break;  
         };
       }
@@ -149,28 +162,32 @@ $(document).ready(function(){
     var ds = d.getDate() +"."+ month +". "+d.getFullYear()+"  " 
         + hours+ ":" + minutes ; 
     if (sel === "" && amountOut === ""){          // avoiding insertion of all  blank inputs in the list/table    
-      var message = $(this).attr("data13");
+      $("#modalWarning").text("Inputs Goods Type and Amount cannot be blank");
+      var message = $(this).attr("data");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
         $(message).fadeOut("fast");
       }); 
     } 
     else if (sel === ""){       //warning if sel input is empty
-      var message = $(this).attr("data14");
+      $("#modalWarning").text("Input Goods Type cannot be blank"); 
+      var message = $(this).attr("data");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
         $(message).fadeOut("fast");
       });             
     }
     else if (amountOut === ""){       //warning if amountOut and price input is empty
-      var message = $(this).attr("data15");
+      $("#modalWarning").text("Input Amount cannot be blank");
+      var message = $(this).attr("data");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
         $(message).fadeOut("fast");
       });             
     }
     else if(isNaN(amountOut) || amountOut <=0){
-      var message = $(this).attr("data17");
+      $("#modalWarning").text("Requested amount is not available amount");
+      var message = $(this).attr("data");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
         $(message).fadeOut("fast"); 
@@ -180,7 +197,8 @@ $(document).ready(function(){
       for (var i=0; i<list.length; i++){ //searching the object to change the property
         if (sel === list[i].name){  
           if (amountOut>list[i].amount) {            //positive numbers check
-            var message = $(this).attr("data16");
+            $("#modalWarning").text("Requested amount is not available amount");
+            var message = $(this).attr("data");
             $(message).fadeIn("fast"); 
             $(message).find(".closeBox, #closeOK").click(function(){
               $(message).fadeOut("fast"); 

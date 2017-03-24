@@ -38,53 +38,13 @@
       <br>
       <h2>in Stock Management System</h2>     
     </div>
-    <div id="overlayBox1">
-      <div id="boxReg" class="showWindow">
-        <div id="boxHead">
-          <p id="warningHead">Warning</p>
-          <span class="closeBox">&times;</span>
-        </div>
-        <p id="tableRegWarning">Inputs <u>Goods Name</u> and <u>UOM</u> cannot be blank</p>        
-        <button id="closeOK">OK</button>  
-      </div>
-    </div> 
     <div id="overlayBox">
       <div id="boxReg" class="showWindow">
         <div id="boxHead">
           <p id="warningHead">Warning</p>
           <span class="closeBox">&times;</span>
         </div>
-        <p id="duplicityWarning">This item is already in the system</p>
-        <button id="closeOK">OK</button>  
-      </div>
-    </div> 
-    <div id="overlayBox3">
-      <div id="boxReg" class="showWindow">
-        <div id="boxHead">
-          <p id="warningHead">Warning</p>
-          <span class="closeBox">&times;</span>
-        </div>
-        <p id="tableRegWarningName">Input <u>Goods Name</u> cannot be blank</p>
-        <button id="closeOK">OK</button>  
-      </div>
-    </div>
-    <div id="overlayBox4">
-      <div id="boxReg" class="showWindow">
-        <div id="boxHead">
-          <p id="warningHead">Warning</p>
-          <span class="closeBox">&times;</span>
-        </div>
-        <p id="tableRegWarningUom">Input <u>UOM</u> cannot be blank</p>
-        <button id="closeOK">OK</button>  
-      </div>
-    </div>
-    <div id="overlayBox18">
-      <div id="boxReg" class="showWindow">
-        <div id="boxHead">
-          <p id="warningHead">Warning</p>
-          <span class="closeBox">&times;</span>
-        </div>
-        <p id="tableRegWarning">Letters are required!</p>        
+        <p id="modalWarning"></p>
         <button id="closeOK">OK</button>  
       </div>
     </div> 
@@ -102,7 +62,7 @@
           <option id="opt5">g</option>
         </select>
       </p> 
-      <button type="button" id="insertItem" value="" class="btn btn-success btn-md" data="#overlayBox" data1="#overlayBox1" data3="#overlayBox3" data4="#overlayBox4" data18="#overlayBox18">Insert Item</button>
+      <button type="button" id="insertItem" value="" class="btn btn-success btn-md" data="#overlayBox">Insert Item</button>
       <br><br><br><br>
       <ol> 
         <table class="table table-condensed" id="tableReg">
@@ -117,86 +77,6 @@
         </table>
       </ol>      
     </div>
-    <div id="overlayBox5">
-      <div id="boxStockIn" class="showWindow">
-        <div id="boxHead">
-          <p id="warningHead">Warning</p>
-          <span class="closeBox">&times;</span>
-        </div>
-        <p id="tableInWarning">Inputs <u>Goods Type</u>, <u>Amount</u> and <u>Price</u> cannot be blank</p>
-        <button id="closeOK">OK</button>  
-      </div>
-    </div>
-    <div id="overlayBox6">
-      <div id="boxStockIn" class="showWindow">
-        <div id="boxHead">
-          <p id="warningHead">Warning</p>
-          <span class="closeBox">&times;</span>
-        </div>
-        <p id="tableInWarning">Inputs <u>Goods Type</u> and <u>Amount</u> cannot be blank</p>
-        <button id="closeOK">OK</button>  
-      </div>
-    </div>
-    <div id="overlayBox7">
-      <div id="boxStockIn" class="showWindow">
-        <div id="boxHead">
-          <p id="warningHead">Warning</p>
-          <span class="closeBox">&times;</span>
-        </div>
-        <p id="tableInWarning">Inputs <u>Goods Type</u> and <u>Price</u> cannot be blank</p>
-        <button id="closeOK">OK</button>  
-      </div>
-    </div>
-    <div id="overlayBox8">
-      <div id="boxStockIn" class="showWindow">
-        <div id="boxHead">
-          <p id="warningHead">Warning</p>
-          <span class="closeBox">&times;</span>
-        </div>
-        <p id="tableInWarning">Inputs <u>Amount</u> and <u>Price</u> cannot be blank</p>
-        <button id="closeOK">OK</button>  
-      </div>
-    </div>
-    <div id="overlayBox9">
-      <div id="boxStockIn" class="showWindow">
-        <div id="boxHead">
-          <p id="warningHead">Warning</p>
-          <span class="closeBox">&times;</span>
-        </div>
-        <p id="tableInWarning">Input <u>Goods Type</u> cannot be blank</p>
-        <button id="closeOK">OK</button>  
-      </div>
-    </div>
-    <div id="overlayBox10">
-      <div id="boxStockIn" class="showWindow">
-        <div id="boxHead">
-          <p id="warningHead">Warning</p>
-          <span class="closeBox">&times;</span>
-        </div>
-        <p id="tableInWarning">Input <u>Amount</u> cannot be blank</p>
-        <button id="closeOK">OK</button>  
-      </div>
-    </div>
-    <div id="overlayBox11">
-      <div id="boxStockIn" class="showWindow">
-        <div id="boxHead">
-          <p id="warningHead">Warning</p>
-          <span class="closeBox">&times;</span>
-        </div>
-        <p id="tableInWarning">Input <u>Price</u> cannot be blank</p>
-        <button id="closeOK">OK</button>  
-      </div>
-    </div>
-    <div id="overlayBox12">
-      <div id="boxStockIn" class="showWindow">
-        <div id="boxHead">
-          <p id="warningHead">Warning</p>
-          <span class="closeBox">&times;</span>
-        </div>
-        <p id="tableInWarning">Inputs <u>Amount</u> and <u>Price</u> must be positive numbers</p>
-        <button id="closeOK">OK</button>  
-      </div>
-    </div>
     <div id="stockin">
       <p id="headingIn" class="subHeadings">Goods Stock In</p>
       <div class="underlineSub"></div>
@@ -210,7 +90,7 @@
       <br>
       <p id="enterAmount">Amount: <input type="text" id="quantity" value=""> </p>
       <p id="enterPrice">Price: <input type="text" id="rate" value=""> </p>            
-      <button type="button" id="inItem" value="" class="btn btn-success btn-md" data5="#overlayBox5" data6="#overlayBox6" data7="#overlayBox7" data8="#overlayBox8" data9="#overlayBox9" data10="#overlayBox10" data11="#overlayBox11" data12="#overlayBox12">Stock In Item</button>
+      <button type="button" id="inItem" value="" class="btn btn-success btn-md" data="#overlayBox">Stock In Item</button>
       <br><br><br><br>      
       <ol> 
         <table class="table table-condensed" id="tableIn">
@@ -228,56 +108,6 @@
         </table>
       </ol>
     </div>
-    <div id="overlayBox13">
-      <div id="boxStockIn" class="showWindow">
-        <div id="boxHead">
-          <p id="warningHead">Warning</p>
-          <span class="closeBox">&times;</span>
-        </div>
-        <p id="tableInWarning">Inputs <u>Goods Type</u> and <u>Amount</u> cannot be blank</p>
-        <button id="closeOK">OK</button>  
-      </div>
-    </div>
-    <div id="overlayBox14">
-      <div id="boxStockIn" class="showWindow">
-        <div id="boxHead">
-          <p id="warningHead">Warning</p>
-          <span class="closeBox">&times;</span>
-        </div>
-        <p id="tableInWarning">Input <u>Goods Type</u> cannot be blank</p>
-        <button id="closeOK">OK</button>  
-      </div>
-    </div>
-    <div id="overlayBox15">
-      <div id="boxStockIn" class="showWindow">
-        <div id="boxHead">
-          <p id="warningHead">Warning</p>
-          <span class="closeBox">&times;</span>
-        </div>
-        <p id="tableInWarning">Input <u>Amount</u> cannot be blank</p>
-        <button id="closeOK">OK</button>  
-      </div>
-    </div>
-     <div id="overlayBox16">
-      <div id="boxStockIn" class="showWindow">
-        <div id="boxHead">
-          <p id="warningHead">Warning</p>
-          <span class="closeBox">&times;</span>
-        </div>
-        <p id="tableInWarning">Requested amount is not available amount</p>
-        <button id="closeOK">OK</button>  
-      </div>
-     </div>
-     <div id="overlayBox17">
-      <div id="boxStockIn" class="showWindow">
-        <div id="boxHead">
-          <p id="warningHead">Warning</p>
-          <span class="closeBox">&times;</span>
-        </div>
-        <p id="tableInWarning">Input <u>Amount</u> must be a positive number</p>
-        <button id="closeOK">OK</button>  
-      </div>
-    </div>
     <div id="stockout">
       <p id="headingOut" class="subHeadings">Goods Stock Out</p>
       <div class="underlineSub"></div>
@@ -291,7 +121,7 @@
       <br>
       <p id="enterAmount2">Amount: <input type="text" id="quantity2" value=""> </p>
                 
-      <button type="button" id="outItem" value="" class="btn btn-success btn-md" data13="#overlayBox13" data14="#overlayBox14" data15="#overlayBox15" data16="#overlayBox16", data17="#overlayBox17">Stock Out Item</button>
+      <button type="button" id="outItem" value="" class="btn btn-success btn-md" data="#overlayBox">Stock Out Item</button>
       <br><br><br><br> 
       <ol> 
         <table class="table table-condensed" id="tableOut">
