@@ -6,9 +6,11 @@ $(document).ready(function(){
   $("#insertItem").click(function(){                    //user's input into variables
     var name = $("#name").val();
     var uom = $("#measure").val();
-    var amount, price, duplicite_goods;
-    var item1 = {"name": name, "uom": uom, "amount": null, "price": null};          //object declaration   
-    if (name === "" && uom === ""){   //warning if both inputs are empty    
+    var amount, price, duplicite_goods, valid, re; 
+    re=/^(\D)/;
+    valid=re.test(name);
+       var item1 = {"name": name, "uom": uom, "amount": null, "price": null};          //object declaration   
+   if (name === "" && uom === ""){   //warning if both inputs are empty    
       $("#modalWarning").text("Inputs Goods Name and UOM cannot be blank");
       var message=$(this).attr("data");  
       $(message).fadeIn("fast"); 
@@ -32,7 +34,10 @@ $(document).ready(function(){
         $(message).fadeOut("fast");
       });             
     }
-     else if (!isNaN(name)){      //warning if name input is empty 
+    
+   
+    
+      else if (valid==false){      //warning if name input is empty 
      $("#modalWarning").text("Letters are required!");
       var message = $(this).attr("data");
       $(message).fadeIn("fast"); 
@@ -49,11 +54,11 @@ $(document).ready(function(){
           $(message).find(".closeBox, #closeOK").click(function(){
             $(message).fadeOut("fast");
           });
-          duplicite_goods=false;                                     
+          duplicite_goods=true;                                     
           break;
         };         
       };
-      if (duplicite_goods != false) {
+      if (duplicite_goods != true) {
       $("#name").val("");
       $("#measure").val("");
        list.push(item1);   //insertion into the list                            
@@ -68,7 +73,11 @@ $(document).ready(function(){
     var price = $("#rate").val();
     var d = new Date();
     var ds = d.getDate() +"."+(d.getMonth()+1)+". "+d.getFullYear()+"  " 
-        + d.getHours() + ":" + d.getMinutes();    
+        + d.getHours() + ":" + d.getMinutes();
+        re=/^(\d)/;
+    valid=re.test(amountIn); 
+    re1=/^(\d)/;
+    valid1=re1.test(price);    
     if (sel === "" && amountIn === "" && price === ""){          // avoiding insertion of all 3 blank inputs in the list/table    
        $("#modalWarning").text("Inputs Goods Type, Amount and Price cannot be blank");
       var message = $(this).attr("data");
@@ -126,7 +135,7 @@ $(document).ready(function(){
       });             
     }
     //if inputs amount and price are not numbers or are 0 or negative numbers
-    else if(isNaN(amountIn) && isNaN(price) || isNaN(amountIn) || isNaN(price) || price <=0 && amountIn <=0 || price<=0 || amountIn <=0){
+    else if(valid == false && valid1==false || valid== false || valid1 ==false || price <=0 && amountIn <=0 || price<=0 || amountIn <=0){
       $("#modalWarning").text("Inputs Amount and Price must be positive numbers");
       var message = $(this).attr("data");
       $(message).fadeIn("fast"); 
