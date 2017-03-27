@@ -260,7 +260,7 @@ $(document).ready(function(){
     });    
   $("#registration, #stockin, #stockout, #onstock, #movements").hide();   //button(div) toggling
   $("#buttonBar > button").click(function() {
-    $("#welcome").hide();
+    $(".welcome").hide();
     var x = $(this).index();   
     $("#registration").toggle(x===0);
     $("#stockin").toggle(x===1);
