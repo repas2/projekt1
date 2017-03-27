@@ -135,8 +135,25 @@ $(document).ready(function(){
       });             
     }
     //if inputs amount and price are not numbers or are 0 or negative numbers
-    else if(valid == false && valid1==false || valid== false || valid1 ==false || price <=0 && amountIn <=0 || price<=0 || amountIn <=0){
+
+    else if(valid == false && valid1==false|| price <=0 && amountIn <=0 || price<=0 || amountIn <=0){
       $("#modalWarning").text("Inputs Amount and Price must be positive numbers");
+      var message = $(this).attr("data");
+      $(message).fadeIn("fast"); 
+      $(message).find(".closeBox, #closeOK").click(function(){
+      $(message).fadeOut("fast");
+         });
+    } 
+    else if(valid == false){
+      $("#modalWarning").text("Input Amount must be positive numbers");
+      var message = $(this).attr("data");
+      $(message).fadeIn("fast"); 
+      $(message).find(".closeBox, #closeOK").click(function(){
+      $(message).fadeOut("fast");
+         });
+    } 
+    else if(valid1==false){
+      $("#modalWarning").text("Input Price must be positive numbers");
       var message = $(this).attr("data");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
@@ -170,6 +187,8 @@ $(document).ready(function(){
     }; 
     var ds = d.getDate() +"."+ month +". "+d.getFullYear()+"  " 
         + hours+ ":" + minutes ; 
+        re2=/^(\d)/;
+    valid2=re2.test(amountOut); 
     if (sel === "" && amountOut === ""){          // avoiding insertion of all  blank inputs in the list/table    
       $("#modalWarning").text("Inputs Goods Type and Amount cannot be blank");
       var message = $(this).attr("data");
@@ -194,8 +213,16 @@ $(document).ready(function(){
         $(message).fadeOut("fast");
       });             
     }
-    else if(isNaN(amountOut) || amountOut <=0){
+    else if(amountOut <=0){
       $("#modalWarning").text("Requested amount is not available amount");
+      var message = $(this).attr("data");
+      $(message).fadeIn("fast"); 
+      $(message).find(".closeBox, #closeOK").click(function(){
+        $(message).fadeOut("fast"); 
+      });    
+    }
+     else if(valid2==false){
+      $("#modalWarning").text("Number is required");
       var message = $(this).attr("data");
       $(message).fadeIn("fast"); 
       $(message).find(".closeBox, #closeOK").click(function(){
